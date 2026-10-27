@@ -3,11 +3,10 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
-    private final WebDriver driver;
+public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     // ===== Locators (private – test không được biết) =====
@@ -30,4 +29,8 @@ public class LoginPage {
 
     public By getSuccessLocator() { return successMsg; }
     public By getErrorLocator()   { return errorMsg; }
+
+    public String getMessageText(By locator) {
+        return getText(locator);
+    }
 }
